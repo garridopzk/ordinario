@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Ordinario"
         tools:targetApi="31">
         <activity
+            android:name=".dialog_delete"
+            android:exported="false" />
+        <activity
+            android:name=".dialog_insert"
+            android:exported="false" />
+        <activity
+            android:name=".dialog_update"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity4"
             android:exported="false" />
         <activity

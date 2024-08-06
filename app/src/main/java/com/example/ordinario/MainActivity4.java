@@ -6,19 +6,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
-import android.view.View;
+
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.ordinario.db.DatabaseHelper;
+
+import com.example.ordinario.db.OrdinarioBd;
+
 import java.util.ArrayList;
 
 public class MainActivity4 extends AppCompatActivity {
 
-    DatabaseHelper dbHelper;
+    OrdinarioBd dbHelper;
     ListView listViewProductos;
     ArrayList<String> productosList;
     ArrayAdapter<String> adapter;
@@ -28,7 +30,7 @@ public class MainActivity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
-        dbHelper = new DatabaseHelper(this);
+        dbHelper = new OrdinarioBd(this);
         listViewProductos = findViewById(R.id.listViewProductos);
         productosList = new ArrayList<>();
 
@@ -48,13 +50,13 @@ public class MainActivity4 extends AppCompatActivity {
         Cursor cursor = null;
 
         try {
-            cursor = db.query(DatabaseHelper.TABLE_PRODUCTOS, null, null, null, null, null, null);
+            cursor = db.query(OrdinarioBd.TABLE_PRODUCTOS, null, null, null, null, null, null);
 
             if (cursor.moveToFirst()) {
                 do {
-                    int idColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID);
-                    int nombreColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_NOMBRE);
-                    int precioColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_PRECIO);
+                    int idColumnIndex = cursor.getColumnIndex(OrdinarioBd.COLUMN_ID);
+                    int nombreColumnIndex = cursor.getColumnIndex(OrdinarioBd.COLUMN_NOMBRE);
+                    int precioColumnIndex = cursor.getColumnIndex(OrdinarioBd.COLUMN_PRECIO);
 
                     if (idColumnIndex != -1 && nombreColumnIndex != -1 && precioColumnIndex != -1) {
                         String producto = cursor.getInt(idColumnIndex) + ": "
