@@ -25,9 +25,9 @@ public class MainActivity2 extends AppCompatActivity {
         Button btnInventario = findViewById(R.id.btnInventario);
         Button btnSalir = findViewById(R.id.btnSalir);
 
-        btnVenta.setOnClickListener(v -> startActivity(new Intent(MainActivity2.this, MainActivity3.class)));
+        btnVenta.setOnClickListener(v -> startActivity(new Intent(MainActivity2.this, MainActivity4.class)));
 
-        btnInventario.setOnClickListener(v -> startActivity(new Intent(MainActivity2.this, MainActivity4.class)));
+        btnInventario.setOnClickListener(v -> startActivity(new Intent(MainActivity2.this, MainActivity3.class)));
 
         btnSalir.setOnClickListener(v -> finish());
     }
